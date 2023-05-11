@@ -14,7 +14,7 @@ project pSix "Web Game"  2023-03-15 +3m {
   # Use Euroepan format for numbers
   numberformat "-" "" "." "," 2
   # Use Eurpean financial format for currency values. Don't show cents.
-  currencyformat "-" "" "." "," 2
+  currencyformat "-" "" "." ","
   # Pick a day during the project that will be reported as 'today' in
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
@@ -155,7 +155,11 @@ task WMGame "Web & Mobile Game" {
       allocate dev4
       depends WMGame.tdesp.tdec
     }
-    
+    task tejc "Mantenimiento"{
+      effort 20d
+      allocate dev4
+      depends WMGame.tdesp.tdec
+    }
   }
 
   task twebF "Web Front End" {
