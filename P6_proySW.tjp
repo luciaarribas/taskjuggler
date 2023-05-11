@@ -45,7 +45,9 @@ rate 145.2
 account cost "Project Cost" {
   account manag "Management"
   account wFront "Web Front-End"
+  account mFront "Mobile Front-End"
   account back "Back-End"
+  account desp "Despliegue"
 }
 account rev "Payments"
 # The Profit&Loss analysis should be rev - cost accounts.
@@ -170,7 +172,7 @@ task WMGame "Web & Mobile Game" {
 
    task tmovilF "Mobile Front End" {
     purge chargeset
-    chargeset wFront
+    chargeset mFront
     responsible dev3
     depends WMGame.tback.tBEd
     task tGUImd "Mobile GUI Design" {
