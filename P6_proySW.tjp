@@ -119,6 +119,28 @@ task WMGame "Web & Mobile Game" {
     }
   }
 
+  task tdesp "Despliegue Back End" {
+    purge chargeset
+    chargeset desp
+    responsible dev4
+    depends WMGame.tback
+    task tev "Evaluacion de la nube"{
+      effort 2d
+      allocate dev1
+    }
+    task tdec "Decision de la nube"{
+      effort 1d
+      allocate dev1
+      depends WMGame.tdesp.tev
+    }
+    task tejc "Ejecucion en la nube"{
+      effort 2d
+      allocate dev1
+      depends WMGame.tdesp.tdec
+    }
+    
+  }
+
   task twebF "Web Front End" {
     purge chargeset
     chargeset wFront
