@@ -124,7 +124,7 @@ task WMGame "Web & Mobile Game" {
   task tdesp "Despliegue Back End" {
     purge chargeset
     chargeset desp
-    responsible dev4
+    responsible dev2
     depends WMGame.tback
     task tev "Evaluacion de la nube"{
       effort 2d
