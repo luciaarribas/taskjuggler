@@ -70,7 +70,7 @@ resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
 
-resource dev3 "John Black" {
+resource dev4 "John Black" {
   email "xxxx@unizar.es"
 }
 
