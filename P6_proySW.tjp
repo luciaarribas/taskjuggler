@@ -146,7 +146,7 @@ task WMGame "Web & Mobile Game" {
     }    
   }
 
-   task tmobileF "Mobile Front End" {
+   task tmovilF "Mobile Front End" {
     purge chargeset
     chargeset wFront
     responsible dev3
