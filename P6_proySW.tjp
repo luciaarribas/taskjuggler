@@ -70,8 +70,14 @@ resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
 
+resource dev3 "John Black" {
+  email "xxxx@unizar.es"
+}
+
 resource lucia "Lucia Arribas" {
   email "827183@unizar.es"
+  workinghours mon - fri 10:00 - 14:00
+  workinghours sat, sun off
 }
 
 # Now we specify the work packages. The whole project is described as
@@ -128,11 +134,11 @@ task WMGame "Web & Mobile Game" {
   task tdesp "Despliegue Back End" {
     purge chargeset
     chargeset desp
-    responsible dev2
+    responsible dev4
     depends WMGame.tback
     task tev "Evaluacion de la nube"{
       effort 2d
-      allocate dev1
+      allocate dev2, dev4
       journalentry ${projectstart} "Diferentes nubes escogidas para evaluar" {
         author dev3
         alert yellow
@@ -141,12 +147,12 @@ task WMGame "Web & Mobile Game" {
     }
     task tdec "Decision de la nube"{
       effort 1d
-      allocate dev1
+      allocate dev4
       depends WMGame.tdesp.tev
     }
     task tejc "Ejecucion en la nube"{
       effort 2d
-      allocate dev1
+      allocate dev4
       depends WMGame.tdesp.tdec
     }
     
@@ -155,12 +161,12 @@ task WMGame "Web & Mobile Game" {
   task twebF "Web Front End" {
     purge chargeset
     chargeset wFront
-    responsible dev3
+    responsible lucia
     depends WMGame.tback.tBEd
     task tGUId "Web GUI Design" {
       effort 9d
       actual:effort 15d
-      allocate dev3
+      allocate dev3, lucia
       journalentry 2023-04-11 "Problems with the GUI design tool" {
         author dev3
         alert yellow
@@ -169,12 +175,12 @@ task WMGame "Web & Mobile Game" {
     }
     task tFEc "Web Front End Construction" {
       effort 15d
-      allocate dev2, dev3
+      allocate dev3, lucia
       depends WMGame.twebF.tGUId
     }
     task tFEt "Web Front End Test" {
       effort 6d
-      allocate dev1
+      allocate lucia
       depends WMGame.twebF.tFEc
     }    
   }
