@@ -155,8 +155,8 @@ task WMGame "Web & Mobile Game" {
       allocate dev4
       depends WMGame.tdesp.tdec
     }
-    task tmant "Mantenimiento"{
-      end ${projectend}
+    task tmant "Comprobamiento del funcionamiento"{
+      effort 10d
       allocate dev4
       depends WMGame.tdesp.tejc
     }
@@ -179,12 +179,12 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tFEc "Web Front End Construction" {
-      effort 15d
+      effort 10d
       allocate dev3, lucia
       depends WMGame.twebF.tGUId
     }
     task tFEt "Web Front End Test" {
-      effort 10d
+      effort 6d
       allocate lucia
       depends WMGame.twebF.tFEc
     }    
@@ -206,12 +206,12 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tFEmc "Mobile Front End Construction" {
-      effort 13d
+      effort 10d
       allocate dev2, dev3
       depends WMGame.tmovilF.tGUImd
     }
     task tFEmt "Mobile Front End Test" {
-      effort 10d
+      effort 6d
       allocate dev1
       depends WMGame.tmovilF.tFEmc
     }    
@@ -298,6 +298,11 @@ textreport frame "" {
   textreport overvi "Overview" {
     formats html
     center '<[report id="overview"]>'
+  }
+
+  textreport ini "Inicial" {
+    formats html
+    center '<[report id="inicial"]>'
   }
 
   textreport "Status" {
