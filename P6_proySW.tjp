@@ -19,7 +19,7 @@ project pSix "Web Game"  2023-03-15 +2.5m {
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
   # can't be seen in the reports.
-  now 2023-04-15-13:00
+  now 2023-05-11-12:30
   # The currency for all money values is the US Dollar.
   currency "EUR"
 
@@ -68,6 +68,10 @@ resource dev2 "Samantha Müller" {
 }
 resource dev3 "Peter Green" {
   email "kkk@unizar.es"
+}
+
+resource lucia "Lucia Arribas" {
+  email "827183@unizar.es"
 }
 
 # Now we specify the work packages. The whole project is described as
@@ -129,6 +133,11 @@ task WMGame "Web & Mobile Game" {
     task tev "Evaluacion de la nube"{
       effort 2d
       allocate dev1
+      journalentry ${projectstart} "Diferentes nubes escogidas para evaluar" {
+        author dev3
+        alert yellow
+        summary "Se han escogido diferentes nubes para evaluarlas, se compararan sus prestaciones"
+      }
     }
     task tdec "Decision de la nube"{
       effort 1d
@@ -202,6 +211,7 @@ task WMGame "Web & Mobile Game" {
       allocate boss
       allocate dev2
       actual:effort 15d
+      start 2023-06-01
       journalentry 2023-04-13 "Problems with the planned dates" {
         author boss
         alert red
